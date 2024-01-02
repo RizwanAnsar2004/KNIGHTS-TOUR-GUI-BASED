@@ -8,7 +8,7 @@ namespace KNIGHTS_TOUR_GUI_BASED
 {
     internal class Warnsdoff
     {
-         int[,] chess_Board = {
+       public  int[,] chess_Board = {
         {0,0,0,0,0,0,0,0},
         {0,0,0,0,0,0,0,0 },
         {0,0,0,0,0,0,0,0 },
@@ -56,6 +56,7 @@ namespace KNIGHTS_TOUR_GUI_BASED
             }
             return count;
         }
+
         public (int, int) solve(int[,] arr)
         {
             int min = int.MaxValue;
