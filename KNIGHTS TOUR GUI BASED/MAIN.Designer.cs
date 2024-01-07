@@ -128,6 +128,7 @@
             this.button9 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.button65 = new System.Windows.Forms.Button();
             this.label36 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
@@ -827,7 +828,7 @@
             this.button31.Size = new System.Drawing.Size(156, 109);
             this.button31.TabIndex = 45;
             this.button31.UseVisualStyleBackColor = false;
-            this.button31.Click += new System.EventHandler(this.button39_Click);
+            this.button31.Click += new System.EventHandler(this.button31_Click);
             // 
             // button23
             // 
@@ -1103,7 +1104,7 @@
             this.button43.Size = new System.Drawing.Size(156, 109);
             this.button43.TabIndex = 21;
             this.button43.UseVisualStyleBackColor = false;
-            this.button43.Click += new System.EventHandler(this.button21_Click);
+            this.button43.Click += new System.EventHandler(this.button43_Click);
             // 
             // button35
             // 
@@ -1351,6 +1352,7 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.IndianRed;
             this.panel2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel2.BackgroundImage")));
+            this.panel2.Controls.Add(this.button65);
             this.panel2.Controls.Add(this.label36);
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Controls.Add(this.radioButton2);
@@ -1365,6 +1367,19 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(448, 1050);
             this.panel2.TabIndex = 1;
+            // 
+            // button65
+            // 
+            this.button65.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.button65.Font = new System.Drawing.Font("Cambria Math", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button65.ForeColor = System.Drawing.Color.Black;
+            this.button65.Location = new System.Drawing.Point(71, 913);
+            this.button65.Name = "button65";
+            this.button65.Size = new System.Drawing.Size(314, 82);
+            this.button65.TabIndex = 10;
+            this.button65.Text = "RESET";
+            this.button65.UseVisualStyleBackColor = true;
+            this.button65.Click += new System.EventHandler(this.button65_Click);
             // 
             // label36
             // 
@@ -1401,6 +1416,7 @@
             this.radioButton2.TabIndex = 7;
             this.radioButton2.TabStop = true;
             this.radioButton2.Text = "BACKTRACKING";
+            this.radioButton2.UseMnemonic = false;
             this.radioButton2.UseVisualStyleBackColor = false;
             // 
             // label35
@@ -1476,7 +1492,7 @@
             this.button66.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.button66.Font = new System.Drawing.Font("Cambria Math", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button66.ForeColor = System.Drawing.Color.Black;
-            this.button66.Location = new System.Drawing.Point(71, 834);
+            this.button66.Location = new System.Drawing.Point(71, 793);
             this.button66.Name = "button66";
             this.button66.Size = new System.Drawing.Size(314, 82);
             this.button66.TabIndex = 0;
@@ -1615,5 +1631,6 @@
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button button65;
     }
 }

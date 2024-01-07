@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -20,11 +21,11 @@ namespace KNIGHTS_TOUR_GUI_BASED
         int row = -1;
         int col = -1;
         Warnsdoff w = new Warnsdoff();
+        backtracking b=new backtracking();
 
         public void getinput (int row, int col){
             textBox1.Text = row.ToString();
             textBox2.Text = col.ToString();
-               
         }
         private void button1_Click(object sender, EventArgs e)
         {
@@ -516,9 +517,14 @@ namespace KNIGHTS_TOUR_GUI_BASED
                 {
                     if (radioButton1.Checked == true)
                     {
-                        w.chess_Board[row-1,col-1]=1;
+                        w.reset();
                         w.move(row-1,col-1);
-                        
+                        repaint(w.chess_Board);
+                    }
+                    else if (radioButton2.Checked==true) {
+                        b.reset();
+                        b.SolveTour(row-1,col-1);
+                        repaint(b.board);
                     }
                 }
                 else
@@ -534,18 +540,80 @@ namespace KNIGHTS_TOUR_GUI_BASED
             }
         }
 
-        public void repaint()
+        public void repaint(int[,] array)
         {
             for (int i = 0; i < 8; i++)
             {
                 for (int j = 0; j < 8; j++)
                 {
-                    string button = "button" + (i+1).ToString();
-                    ("button" + (i + 1).ToString()).Text(w.chess_Board[i, j].ToString) ;
+                    string buttonName = "button" + ((i * 8) + j + 1).ToString();
+                    Button currentButton = Controls.Find(buttonName, true).FirstOrDefault() as Button;
+
+                    if (currentButton != null)
+                    {
+                        currentButton.Text = array[i, j].ToString();
+                        currentButton.Font = new Font("Arial", 20, FontStyle.Bold);
+                        currentButton.ForeColor = Color.Red;
+                    }
+                }
+            }
+
+            // Move the reset calls outside of the loop
+            w.reset();
+            b.reset();
+        }
+
+        public void reset()
+        {
+            MessageBox.Show("Resetting...");
+            for (int i = 0; i < 8; i++)
+            {
+                
+
+                for (int j = 0; j < 8; j++)
+
+                {
+                    string buttonName = "button" + ((i * 8) + j + 1).ToString();
+                    Button currentButton = Controls.Find(buttonName, true).FirstOrDefault() as Button;
+
+                    if (currentButton != null)
+                    {
+                        currentButton.Text =null;
+
+                        currentButton.Font = new Font("Arial", 20, FontStyle.Bold);
+                        currentButton.ForeColor = Color.Red;
+                    }
                 }
             }
         }
 
-        
+  //      public async void repaint(int[,] array)
+    //    {
+      //      for (int i = 0; i < 8; i++)
+        //    {
+          //      for (int j = 0; j < 8; j++)
+            //    {
+           //         string buttonName = "button" + ((i * 8) + j + 1).ToString();
+          //          Button currentButton = Controls.Find(buttonName, true).FirstOrDefault() as Button;
+        //
+            //        if (currentButton != null)
+              //      {
+          //              currentButton.Text = array[i, j].ToString();
+            //            currentButton.Font = new Font("Arial", 20, FontStyle.Bold);
+              //          currentButton.ForeColor = Color.Red;
+
+                //        await Task.Delay(300); // Adjust the delay duration in milliseconds
+ //                  }
+  //             }
+  //          }
+
+    //        w.reset();
+      //      b.reset();
+//        }
+
+        private void button65_Click(object sender, EventArgs e)
+        {
+            reset();
+        }
     }
 }

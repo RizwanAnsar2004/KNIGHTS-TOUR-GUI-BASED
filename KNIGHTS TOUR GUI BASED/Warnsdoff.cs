@@ -80,7 +80,7 @@ namespace KNIGHTS_TOUR_GUI_BASED
         }
 
 
-        static int counter = 0;
+        static int counter = -1;
 
         public void move(int a, int b)
         {
@@ -92,7 +92,17 @@ namespace KNIGHTS_TOUR_GUI_BASED
                 b = y;
             }
         }
-
+        public void reset()
+        {
+            counter = 0;  // Reset the counter when resetting the chessboard
+            for (int i = 0; i < chess_Board.GetLength(0); i++)
+            {
+                for (int j = 0; j < chess_Board.GetLength(1); j++)
+                {
+                    chess_Board[i, j] = 0;
+                }
+            }
+        }
         public void print(int[,] array)
         {
             for (int i = 0; i < array.GetLength(0); i++)
