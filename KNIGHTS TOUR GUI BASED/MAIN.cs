@@ -22,8 +22,25 @@ namespace KNIGHTS_TOUR_GUI_BASED
         int col = -1;
         Warnsdoff w = new Warnsdoff();
         backtracking b=new backtracking();
+        private Button previouslyClickedButton;
+
 
         public void getinput (int row, int col){
+            if (previouslyClickedButton != null)
+            {
+                previouslyClickedButton.Text = null; // Remove knight symbol from the previously clicked button
+            }
+            string buttonName = "button" + ((row - 1) * 8 + col).ToString();
+            Button currentButton = Controls.Find(buttonName, true).FirstOrDefault() as Button;
+
+            if (currentButton != null)
+            {
+                currentButton.Text = "♘"; // Display knight symbol on the clicked button
+                currentButton.Font = new Font("Arial", 70, FontStyle.Bold);
+               // currentButton.ForeColor = Color.Red;
+
+                previouslyClickedButton = currentButton;
+            }
             textBox1.Text = row.ToString();
             textBox2.Text = col.ToString();
         }
@@ -32,6 +49,11 @@ namespace KNIGHTS_TOUR_GUI_BASED
             row = 1;
             col = 1;
             getinput(row, col);
+          //  if (counter == 0)
+           // {
+             //   button1.Text = "♘";
+              //  button1.Font = new Font("Arial", 70, FontStyle.Bold);
+           // }
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -581,7 +603,12 @@ namespace KNIGHTS_TOUR_GUI_BASED
                         currentButton.Text =null;
 
                         currentButton.Font = new Font("Arial", 20, FontStyle.Bold);
-                        currentButton.ForeColor = Color.Red;
+                        //  currentButton.ForeColor = Color.Red;
+                        if (currentButton.BackColor == Color.Black)
+                        { currentButton.ForeColor = Color.White; }
+                        else if(currentButton.BackColor == Color.FromArgb(255, 255, 192)) {
+                            currentButton.ForeColor = SystemColors.ControlText;
+                        }
                     }
                 }
             }
